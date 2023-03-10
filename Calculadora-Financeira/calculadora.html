@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calculadora.css">
+    <link rel="stylesheet" href="https://fonts.google.com/specimen/Open+Sans">
+    <title>Calculadora Financeira</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Calculadora Financeira</h1>
+        <div id="ipt">
+            <div id="text_ipt">
+                Informe quanto custa uma produção de leite:
+                <input type="text" id="ipt_qtd_produ">
+
+                Infrome a media dessa prdução por mês:
+                <input type="text" id="ipt_produ_mes"> <br>
+
+                <button onclick="btn_calcular_lucro()">Calcular os lucros</button>
+            </div>
+
+        </div>
+
+        <br><br><br><div id="text_msg"></div>
+
+    </div>
+</body>
+
+</html>
+<script>
+    function btn_calcular_lucro() {
+        var qtd_produ = Number(ipt_qtd_produ.value);
+        var produ_mes = Number(ipt_produ_mes.value);
+
+        // calcular os gastos e os lucros
+
+        var cal_producao_leite = (qtd_produ * produ_mes);
+
+        var cal_perda = (cal_producao_leite * 40 / 100);
+
+        var cal_lucro = (cal_perda * 80 / 100);
+
+        text_msg.innerHTML = `Você produziu em media de R$${cal_producao_leite.toFixed(3)} reais de leite<br>
+                            Segundo um estudo cerca de 46% de toneis de leite sofrem com esse problema.<br>
+                            Usamos essa porcentagem para calcular a média da sua perda que é R$${cal_perda.toFixed(2)} reias.<br>
+                            Com o nosso sistemas prometemos 80% de lucro em sua industria e com base <br>
+                             nos dados você lucraria em média de R$${cal_lucro.toFixed(2)} reais.`
+    }
+
+</script>
